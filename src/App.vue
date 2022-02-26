@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavBar from "./components/NavBar.vue";
 import Headline from "./components/Headline.vue";
+import Footer from "./components/Footer.vue";
 </script>
 
 <template>
@@ -10,6 +11,11 @@ import Headline from "./components/Headline.vue";
     <div>
       <Headline />
     </div>
+    <Footer>
+      <template #icon>
+        <font-awesome-icon icon="fa-solid fa-heart" />
+      </template>
+    </Footer>
   </main>
 </template>
 
