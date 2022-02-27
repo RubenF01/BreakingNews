@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-center border-t-2 py-3">
     <h1>
       Made with
       <i>
