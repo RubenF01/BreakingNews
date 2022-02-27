@@ -5,17 +5,23 @@ import Footer from "./components/Footer.vue";
 import NewsFeed from "./components/NewsFeed.vue";
 import { useNewsStore } from "./stores/news";
 import { useSelectorStore } from "./stores/selector";
-import { watchEffect } from "vue";
+import { watchEffect, defineProps } from "vue";
 
 const selectorStore = useSelectorStore();
 const store = useNewsStore();
+
+const props = defineProps({
+  title: String,
+  description: String,
+  imgUrl: String,
+});
 
 watchEffect(() => {
   store.fetchNews(selectorStore.option).then((newData) => {
     store.$patch({
       news: newData,
     });
-    console.log(store.headlineInfo);
+    console.log(store.headlineInfo.urlToImage);
   });
 });
 </script>
@@ -24,7 +30,7 @@ watchEffect(() => {
   <main class="flex flex-col min-h-screen">
     <NavBar />
     <div class="h-[90vh] max-w-7xl mx-auto w-full flex justify-between pt-28">
-      <Headline />
+      <Headline :title="store.headlineInfo.title" />
       <NewsFeed />
     </div>
     <Footer>
