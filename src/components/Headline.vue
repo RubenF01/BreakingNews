@@ -1,7 +1,17 @@
+<script setup lang="ts">
+import { useNewsStore } from "@/stores/news";
+
+const store = useNewsStore();
+</script>
+
 <template>
   <div class="relative h-full w-full text-white">
-    <img class="absolute h-3/4 z-[-1]" src="../assets/war.jpg" alt="imagen" />
-    <h1>Russia Attacks</h1>
-    <p>Russia has just attacked Ukraine</p>
+    <img
+      class="absolute h-3/4 z-[-1] object-fill"
+      :src="store.headlineInfo?.urlToImage"
+      alt="imagen"
+    />
+    <h1>{{ store.headlineInfo?.title }}</h1>
+    <p>{{ store.headlineInfo?.description }}</p>
   </div>
 </template>

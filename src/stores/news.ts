@@ -23,7 +23,9 @@ export const useNewsStore = defineStore("news", {
   },
   getters: {
     headlineInfo: (state) => {
+      if (!state.news) return;
       const { articles } = state.news;
+      if (!articles) return;
       const { title, description, urlToImage } = articles[0];
       return {
         title,
