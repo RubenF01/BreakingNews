@@ -23,8 +23,9 @@ export const useNewsStore = defineStore("news", {
   },
   getters: {
     headlineInfo: (state) => {
-      if (!state.news) return;
+      console.log(state.news);
       const { articles } = state.news;
+      if (!state.news) return;
       if (!articles) return;
       const { title, description, urlToImage } = articles[0];
       return {
@@ -34,6 +35,14 @@ export const useNewsStore = defineStore("news", {
       };
     },
 
-    otherNews: (state) => {},
+    otherNews: (state) => {
+      const { articles } = state.news;
+      const articleFeed = articles.slice(1);
+      if (!state.news) return;
+      if (!articles) return;
+      return {
+        articleFeed,
+      };
+    },
   },
 });

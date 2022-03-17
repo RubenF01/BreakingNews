@@ -7,7 +7,7 @@ const store = useNewsStore();
 <template>
   <div class="relative h-full w-full text-white">
     <img
-      class="absolute h-3/4 z-[-1] object-fill"
+      class="absolute h-3/4 z-[-1] object-fill rounded"
       :src="store.headlineInfo?.urlToImage"
       alt="imagen"
     />
