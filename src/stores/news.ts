@@ -33,5 +33,7 @@ export const useNewsStore = defineStore("news", {
         urlToImage,
       };
     },
+
+    otherNews: (state) => {},
   },
 });
