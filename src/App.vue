@@ -5,10 +5,14 @@ import Footer from "./components/Footer.vue";
 import NewsFeed from "./components/NewsFeed.vue";
 import { useNewsStore } from "./stores/news";
 import { useSelectorStore } from "./stores/selector";
-import { watchEffect } from "vue";
+import { onMounted, watchEffect } from "vue";
 
 const selectorStore = useSelectorStore();
 const store = useNewsStore();
+
+onMounted(() => store.fetchNews(selectorStore.option).then(newData) => {
+  news: newData
+});
 
 watchEffect(() => {
   store.fetchNews(selectorStore.option).then((newData) => {
